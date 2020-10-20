@@ -1,23 +1,19 @@
-# Hello world docker action
+# fargate-deploy
 
-This action prints "Hello World" to the log or "Hello" + the name of a person to greet. To learn how this action was built, see "[Creating a Docker container action](https://help.github.com/en/articles/creating-a-docker-container-action)" in the GitHub Help documentation.
-
-## Inputs
-
-### `who-to-greet`
-
-**Required** The name of the person to greet. Default `"World"`.
-
-## Outputs
-
-### `time`
-
-The time we greeted you.
+Assumes a IAM role and then uses `fargate-cli` to update the container image
+version of a service.
 
 ## Example usage
 
 ```yaml
-uses: actions/hello-world-docker-action@master
-with:
-  who-to-greet: 'Mona the Octocat'
+- name: Deploy to production
+  uses: Likeminded-GmbH/fargate-deploy@main
+  env:
+    AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID}}
+    AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_ACCESS_KEY_ID}}
+  with:
+    role-to-assume: arn:aws:iam::831125543853:role/deployer-role
+    cluster: a-cluster-name
+    service: webapp
+    container-image: docker.pkg.github.com/orgname/reponame/image-name:${{ github.sha }}
 ```
