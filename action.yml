@@ -4,11 +4,11 @@ inputs:
   role-to-assume:
     description: 'IAM role to assume before deploying'
     required: true
-  service:
-    description: 'Name of the service'
+  cluster:
+    description: 'Name of the cluster'
     required: true
   service:
-    description: 'Full name of the docker image'
+    description: 'name of the service'
     required: true
   container-image:
     description: 'Full name of the docker image'
