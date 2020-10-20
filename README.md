@@ -1,13 +1,13 @@
 # fargate-deploy
 
-Assumes a IAM role and then uses `fargate-cli` to update the container image
+Assumes an IAM role and then uses `fargate-cli` to update the container image
 version of a service.
 
 ## Example usage
 
 ```yaml
 - name: Deploy to production
-  uses: Likeminded-GmbH/fargate-deploy@main
+  uses: leonardehrenfried/fargate-deploy@v1
   env:
     AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID}}
     AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_ACCESS_KEY_ID}}

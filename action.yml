@@ -8,7 +8,7 @@ inputs:
     description: 'Name of the cluster'
     required: true
   service:
-    description: 'name of the service'
+    description: 'Name of the service'
     required: true
   container-image:
     description: 'Full name of the docker image'
