@@ -1,15 +1,24 @@
-name: 'Hello World'
-description: 'Greet someone and record the time'
+name: 'Deploy to fargate cluster'
+description: 'Assuming a IAM role and deploying to a Fargate cluster'
 inputs:
-  who-to-greet:  # id of input
-    description: 'Who to greet'
+  role-to-assume:
+    description: 'IAM role to assume before deploying'
     required: true
-    default: 'World'
-outputs:
-  time: # id of output
-    description: 'The time we greeted you'
+  service:
+    description: 'Name of the service'
+    required: true
+  service:
+    description: 'Full name of the docker image'
+    required: true
+  container-image:
+    description: 'Full name of the docker image'
+    required: true
+
 runs:
   using: 'docker'
   image: 'Dockerfile'
   args:
-    - ${{ inputs.who-to-greet }}
+    - ${{ inputs.role-to-assume }}
+    - ${{ inputs.cluster }}
+    - ${{ inputs.service }}
+    - ${{ inputs.container-image }}
