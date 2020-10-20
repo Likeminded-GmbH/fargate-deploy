@@ -1,4 +1,4 @@
-#!/bin/bash -e
+#!/bin/sh -e
 
 echo fargate-cli: `fargate --version`
 echo aws-cli:     `aws --version`
